@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hangman Game</title>
-  <link rel="stylesheet" href="./assets/css/reset.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Hangman Game</title>
+        <link rel="stylesheet" href="./assets/css/reset.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+
+    <body>
+  <div id ="game-lives-wrapper">Lives: <span id="game-lives"></span></div>
+        <div class="container">
+
+            <header>
+                <h1 class="game-title">Household Items Hangman </h1>
+            </header>
+
+            <div id="game-placeholder"></div>
+            <div class="game-input"></div>
+            <h2 class="game-subtitles">Guess Here <h2>
+<div id="guessInput"> <input type="text" class="userInput" onkeypress="getLetters(event)" placeholder="Guess Here"></div>
+<h2 class="game-subtitles">Used Letters <h2>
+<textarea disabled id="wrong" placeholder="Wrong Letters Will Be Displayed Here."></textarea>
+</div>
 
 <script type="text/javascript" src="./assets/javascript/game.js"></script>
 </body>
