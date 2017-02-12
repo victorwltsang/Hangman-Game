@@ -20,7 +20,7 @@ var initRandomWord = () => {
 var writePlaceholders = (randomWord) => {
 
     for (let i = 0; i < randomWord.length; i++) {
-        placeholders += `<span id="letter${i}" class="placeholder">_</span>`;
+        placeholders += `<span id="letter${i}" class="placeholder">&nbsp;&nbsp;</span>`;
     }
     document.getElementById("game-placeholder").innerHTML = placeholders;
     document.getElementById("game-lives").innerHTML = lives;
@@ -29,6 +29,7 @@ var writePlaceholders = (randomWord) => {
 var getLetters = (event) => {
     var x = event.keyCode; // Get the Unicode value
     var y = String.fromCharCode(x); // Convert the value into a character
+    document.getElementById("ui").value = " ";
     used.push(y);
     console.log(used);
     document.getElementById("wrong").innerHTML = used;
@@ -40,24 +41,41 @@ var getLetters = (event) => {
 
 var validateLetters = (letter) => {
     let haveLetter = randomWord.indexOf(letter);
+
+
     console.log(haveLetter);
+
+
     if (haveLetter >= 0) {
         document.getElementById(`letter${haveLetter}`).innerHTML = letter;
+        correct[haveLetter] = letter;
+        console.log(correct);
+        if (correct.join("") === randomWord) {
+            alert("win");
+            replay();
+        }
     } else {
         updateLives();
     }
 };
 
 var updateLives = () => {
+
     lives--;
+
+
     document.getElementById("game-lives").innerHTML = lives;
     if (lives <= 0) {
         alert("You Lose");
-        let replay = confirm("Replay?");
-        if (replay) {
-            location.reload();
-        }
+        replay();
     }
 };
+
+var replay = () => {
+    let replay = confirm("Replay?");
+    if (replay) {
+        location.reload();
+    }
+}
 
 initRandomWord();
