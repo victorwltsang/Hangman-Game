@@ -20,7 +20,7 @@ var initRandomWord = () => {
 var writePlaceholders = (randomWord) => {
 
     for (let i = 0; i < randomWord.length; i++) {
-        placeholders += `<span id="letter${i}" class="placeholder">&nbsp;&nbsp;</span>`;
+        placeholders += `<span id="letter${i}" class="placeholder">&nbsp;&nbsp;&nbsp;</span>`;
     }
     document.getElementById("game-placeholder").innerHTML = placeholders;
     document.getElementById("game-lives").innerHTML = lives;
@@ -29,9 +29,10 @@ var writePlaceholders = (randomWord) => {
 var getLetters = (event) => {
     var x = event.keyCode; // Get the Unicode value
     var y = String.fromCharCode(x); // Convert the value into a character
-    document.getElementById("ui").value = " ";
+
     used.push(y);
     console.log(used);
+    document.getElementById("ui").value = "";
     document.getElementById("wrong").innerHTML = used;
 
     validateLetters(y);
@@ -41,7 +42,10 @@ var getLetters = (event) => {
 
 var validateLetters = (letter) => {
     let haveLetter = randomWord.indexOf(letter);
-
+    let duplicateUsedFront = used.indexOf(letter);
+    let duplicateUsedBack = used.lastIndexOf(letter);
+    console.log("dup " + duplicateUsedFront);
+    console.log("dupB " + duplicateUsedBack);
 
     console.log(haveLetter);
 
@@ -55,18 +59,18 @@ var validateLetters = (letter) => {
             replay();
         }
     } else {
-        updateLives();
+        if (duplicateUsedFront == duplicateUsedBack) {
+            updateLives();
+        }
+
     }
 };
 
 var updateLives = () => {
-
     lives--;
-
-
     document.getElementById("game-lives").innerHTML = lives;
     if (lives <= 0) {
-        alert("You Lose");
+        alert(`You Lose, the word was ${randomWord}`);
         replay();
     }
 };

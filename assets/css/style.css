@@ -1,38 +1,42 @@
 * {
     box-sizing: border-box;
-    border: 1px solid red;
-    /*background-color: rgba(0, 0, 0, 0.1);*/
+    /*border: 1px solid red !important;
+    background-color: rgba(0, 0, 0, 0.1) !important;*/
 }
 
 body {
     font-size: 1.5rem;
     position: relative;
+    background: url(../images/ikea.jpg) no-repeat;
+    background-size: cover;
+    background-position: 0px -150px;
 }
 
 header {
-    margin-bottom: 10vh;
-    font-size: 2rem;
+    margin-bottom: 20vh;
+    font-size: 2.5rem;
 }
 
 .container {
     width: 60vw;
     margin: 5vh auto;
     text-align: center;
+    background-color: rgba(70, 70, 70, 0.55);
+    color: white;
+    padding: 25px;
+}
+
+#game-lives-wrapper {
+    position: absolute;
+    top: 0;
+    left: 3%;
+    background-color: #ccc;
+    padding: 20px;
 }
 
 .game-input {
     margin-top: 20vh;
 }
-
-#game-lives-wrapper {
-    position: absolute;
-    top: -2%;
-    left: 4%;
-    background-color: #ccc;
-    padding: 20px;
-}
-
-#guessInput {}
 
 .userInput, #wrong {
     padding: 20px;
@@ -49,6 +53,6 @@ header {
 }
 
 .placeholder {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     margin: 0 15px;
 }

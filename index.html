@@ -1,31 +1,50 @@
 <!DOCTYPE html>
+
 <html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Hangman Game</title>
-        <link rel="stylesheet" href="./assets/css/reset.css">
-        <link rel="stylesheet" href="./assets/css/style.css">
-    </head>
+	<title>Hangman Game</title>
+	<link href="./assets/css/reset.css" rel="stylesheet">
+	<link href="./assets/css/style.css" rel="stylesheet">
+</head>
 
-    <body>
-        <div id="game-lives-wrapper">Lives: <span id="game-lives"></span></div>
-        <div class="container">
+<body>
+	<div id="game-lives-wrapper">
+		Lives: <span id="game-lives"></span>
+	</div>
 
-            <header>
-                <h1 class="game-title">Household Items Hangman </h1>
-            </header>
 
-            <div id="game-placeholder"></div>
-            <div class="game-input"></div>
-            <h2 class="game-subtitles">Guess Here <h2>
-<div id="guessInput"> <input type="text" id ="ui" class="userInput" onkeypress="getLetters(event)" placeholder="Guess Here" autofocus></div>
-<h2 class="game-subtitles">Used Letters <h2>
-<textarea disabled id="wrong" placeholder="Wrong Letters Will Be Displayed Here."></textarea>
-</div>
+	<div class="container">
+		<header>
+			<h1 class="game-title">Household Items Hangman</h1>
+		</header>
 
-<script type="text/javascript" src="./assets/javascript/game.js"></script>
+
+		<div id="game-placeholder">
+		</div>
+
+
+		<div class="game-input">
+		</div>
+
+
+		<h2 class="game-subtitles">Guess Here</h2>
+
+
+		<div id="guessInput">
+			<input autofocus="" class="userInput" id="ui" onkeypress="getLetters(event)" placeholder=
+			"Guess Here" type="text">
+		</div>
+
+
+		<h2 class="game-subtitles">Used Letters</h2>
+
+		<textarea disabled id="wrong" placeholder="Wrong Letters Will Be Displayed Here."></textarea>
+	</div>
+	<script src="./assets/javascript/game.js" type="text/javascript">
+	</script>
 </body>
 </html>
