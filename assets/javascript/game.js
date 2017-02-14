@@ -90,8 +90,5 @@ var updateLives = () => {
     }
 };
 
-var replay = () => {
-    initRandomWord();
-}
 
 initRandomWord();
