@@ -9,7 +9,6 @@ body {
     position: relative;
     background: url(../images/ikea.jpg) no-repeat;
     background-size: cover;
-    background-position: 0px -150px;
 }
 
 header {

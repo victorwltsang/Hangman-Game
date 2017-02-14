@@ -2,12 +2,21 @@ var used = [];
 var correct = [];
 var randomWord;
 var placeholders = "";
-var lives = 4;
+var lives;
+var wins = 0;
+var loss = 0;
+document.getElementById("game-wins").innerHTML = wins;
+document.getElementById("game-loss").innerHTML = loss;
 
 var initRandomWord = () => {
     //declare a list of household items
     // let words = ["clock", "backpack", "calender", "carpet", "china", "dishwasher", "knives", "paintings", "refrigerator", "tablecloth"];
-
+    lives = 4;
+    used = [];
+    correct = [];
+    placeholders = "";
+    document.getElementById("game-placeholder").innerHTML = placeholders;
+    document.getElementById("wrong").innerHTML = "";
     let words = ["knives", "fork", "bed", "clothes", "brush", "mat"];
 
     //random a word from the words array
@@ -56,7 +65,10 @@ var validateLetters = (letter) => {
         console.log(correct);
         if (correct.join("") === randomWord) {
             alert("win");
-            replay();
+            wins++;
+            document.getElementById("game-wins").innerHTML = wins;
+
+            initRandomWord();
         }
     } else {
         if (duplicateUsedFront == duplicateUsedBack) {
@@ -71,15 +83,15 @@ var updateLives = () => {
     document.getElementById("game-lives").innerHTML = lives;
     if (lives <= 0) {
         alert(`You Lose, the word was ${randomWord}`);
-        replay();
+        loss++;
+        document.getElementById("game-loss").innerHTML = loss;
+        initRandomWord();
+
     }
 };
 
 var replay = () => {
-    let replay = confirm("Replay?");
-    if (replay) {
-        location.reload();
-    }
+    initRandomWord();
 }
 
 initRandomWord();
